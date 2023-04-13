@@ -47,4 +47,11 @@ def animate(i):
 
 #Animation
 ani = FuncAnimation(fig, animate, frames=len(signal), interval=(1/framerate)*1000, init_func=init)
+
+Writer = animation.writers['ffmpeg']
+writer = Writer(fps=framerate, metadata=dict(artist='Me'), bitrate=1800)
+
+# Save the animation as an mp4 file
+ani.save(r"C:\Users\pgomez\Desktop\Paper\animation.mp4", writer=writer)
+
 plt.show()
